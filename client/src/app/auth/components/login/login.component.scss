@@ -1,81 +1,151 @@
-.login-form {
-    max-width: 400px;
-    margin: 50px auto; /* Center the form with spacing from the top */
-    padding: 30px;
-    border: 1px solid #ddd; /* Softer border color */
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
-  }
-  .login-form label {
+/* Container Background - Add this to your main styles or :host */
+:host {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333; /* Darker label color for better readability */
-  }
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #19388a 0%, #001c58 100%);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 20px;
+}
+
+.login-form, .user-form {
+    max-width: 420px;
+    margin: 80px auto; 
+    padding: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #ffffff;
+    /* Deep Shadow for floating effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gold Accent Line at the top */
+.login-form::before, .user-form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 12px; /* Increase padding for better spacing */
-    margin-top: 5px; /* Add space between label and input */
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 6px;
+    background: linear-gradient(to right, #efb11d, #ffeb3b);
+}
+
+.login-form h2, .user-form h2 {
+    color: #19388a;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-form label, .user-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #19388a;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.login-form input, .user-form input, .user-form select {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 5px;
+    border: 2px solid #e1e8ef;
+    border-radius: 12px;
     font-size: 16px;
     box-sizing: border-box;
-    transition: border-color 0.3s ease; /* Smooth transition for border */
-  }
-  .login-form input[type="text"]:focus,
-  .login-form input[type="password"]:focus {
-    border-color: #007bff; /* Highlight input field on focus */
+    transition: all 0.3s ease;
+    background-color: #f9fbff;
+}
+
+.login-form input:focus, .user-form input:focus {
+    border-color: #19388a;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(25, 56, 138, 0.1);
     outline: none;
-  }
-  .login-form .error {
-    color: red;
-    margin-top: 5px;
-    font-size: 14px; /* Slightly smaller font for error message */
-  }
-  .login-form button[type="submit"] {
+}
+
+/* Buttons Styled like IPL Action Buttons */
+.login-form button[type="submit"], .user-form button[type="submit"] {
     display: block;
     width: 100%;
-    padding: 12px;
-    margin-top: 20px;
+    padding: 16px;
+    margin-top: 30px;
     border: none;
-    border-radius: 5px;
-    background-color: #4caf50; /* Green background for success */
+    border-radius: 12px;
+    background: linear-gradient(135deg, #19388a 0%, #001c58 100%);
     color: #fff;
     font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .login-form button[type="submit"]:hover {
-    background-color: #45a049; /* Darken on hover */
-  }
-  .login-form .error-message {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: center; /* Center the error message */
-  }
-  a.task-list {
-    display: block;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(25, 56, 138, 0.3);
+}
+
+.login-form button[type="submit"]:hover, .user-form button[type="submit"]:hover {
+    background: #efb11d; /* Gold hover */
+    color: #19388a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 177, 29, 0.4);
+}
+
+.login-form button[type="submit"]:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Error Styling */
+.login-form .error, .login-form .error-message, .user-form .error {
+    color: #e53e3e;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    background: #fff5f5;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border-left: 3px solid #e53e3e;
+}
+
+.success {
+    color: #2f855a;
+    background: #f0fff4;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
     margin-top: 20px;
+    border: 1px solid #c6f6d5;
+}
+
+/* Redirect Link */
+a.task-list {
+    display: block;
+    margin-top: 25px;
     text-align: center;
     text-decoration: none;
-    color: #007bff;
+    color: #19388a;
+    font-weight: 700;
     font-size: 14px;
-    transition: color 0.3s ease;
-  }
-  a.task-list:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  /* Mobile Responsiveness */
-  @media (max-width: 600px) {
-    .login-form {
-      padding: 20px;
-      margin: 20px auto;
+    transition: all 0.3s ease;
+}
+
+a.task-list:hover {
+    color: #efb11d;
+    text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .login-form, .user-form {
+        padding: 25px;
+        margin: 40px 15px;
     }
-    .login-form button[type="submit"] {
-      padding: 10px;
-    }
-  }
+}
+

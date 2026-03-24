@@ -1,165 +1,142 @@
+/* 1. Container and Form Styling */
 .user-form {
-
-    max-width: 400px;
-
-    margin: 50px auto; /* Center the form with spacing from the top */
-
-    padding: 30px;
-
-    border: 1px solid #ddd; /* Softer border color */
-
-    border-radius: 8px;
-
-    background-color: #fff;
-
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
-
-  }
-
-  .user-form label {
-
-    display: block;
-
-    margin-bottom: 5px;
-
-    font-weight: bold;
-
-    color: #333; /* Darker label color for better readability */
-
-  }
-
-  .user-form input[type="text"],
-
-  .user-form input[type="password"],
-
-  .user-form input[type="email"]{
-
-    width: 100%;
-
-    padding: 12px; /* Increase padding for better spacing */
-
-    margin-top: 5px; /* Add space between label and input */
-
-    border: 1px solid #ccc;
-
-    border-radius: 5px;
-
-    font-size: 16px;
-
-    box-sizing: border-box;
-
-    transition: border-color 0.3s ease; /* Smooth transition for border */
-
-  }
-
-  .user-form input[type="text"]:focus,
-
-  .user-form input[type="password"]:focus {
-
-    border-color: #007bff; /* Highlight input field on focus */
-
-    outline: none;
-
-  }
-
-  .user-form .error {
-
-    color: red;
-
-    margin-top: 5px;
-
-    font-size: 14px; /* Slightly smaller font for error message */
-
-  }
-
-  .user-form button[type="submit"] {
-
-    display: block;
-
-    width: 100%;
-
-    padding: 12px;
-
-    margin-top: 20px;
-
+    max-width: 420px;
+    margin: 60px auto; 
+    padding: 40px;
+    background-color: #ffffff;
     border: none;
+    border-radius: 20px; /* Modern rounded corners */
+    /* Deep shadow to make the form pop against the background */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
 
-    border-radius: 5px;
+/* Gold Header Accent */
+.user-form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #efb11d, #ffdb58);
+}
 
-    background-color: #4caf50; /* Green background for success */
-
-    color: #fff;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    transition: background-color 0.3s ease;
-
-  }
-
-  .user-form button[type="submit"]:hover {
-
-    background-color: #45a049; /* Darken on hover */
-
-  }
-
-  .user-form .error-message {
-
-    color: red;
-
-    margin-top: 10px;
-
-    font-size: 14px;
-
-    text-align: center; /* Center the error message */
-
-  }
-
-  a.task-list {
-
+/* 2. Labels and Input Fields */
+.user-form label {
     display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #19388a; /* IPL Metallic Blue */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
-    margin-top: 20px;
+.user-form input[type="text"],
+.user-form input[type="password"],
+.user-form input[type="email"],
+.user-form select {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 5px;
+    border: 2px solid #e1e8ef;
+    border-radius: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #f9fbff;
+    transition: all 0.3s ease;
+    color: #333;
+}
 
+/* Interactive Focus State */
+.user-form input:focus, .user-form select:focus {
+    border-color: #efb11d; /* Gold border on focus */
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(239, 177, 29, 0.1);
+    outline: none;
+}
+
+/* 3. The Registration Button */
+.user-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 12px;
+    /* Gradient from IPL Navy to Dark Blue */
+    background: linear-gradient(135deg, #19388a 0%, #001c58 100%);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(25, 56, 138, 0.2);
+}
+
+/* Gold Button Hover */
+.user-form button[type="submit"]:hover {
+    background: #efb11d; 
+    color: #19388a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 177, 29, 0.4);
+}
+
+.user-form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* 4. Error and Success Messages */
+.user-form .error, .user-form .error-message {
+    color: #e53e3e;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    background: #fff5f5;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 4px solid #e53e3e;
+}
+
+.success {
+    background: #f0fff4;
+    color: #2f855a;
+    padding: 15px;
+    border-radius: 10px;
     text-align: center;
+    font-weight: 700;
+    margin-top: 20px;
+    border: 1px solid #c6f6d5;
+}
 
+/* 5. Link Styling */
+a.task-list {
+    display: block;
+    margin-top: 25px;
+    text-align: center;
     text-decoration: none;
-
-    color: #007bff;
-
+    color: #19388a;
+    font-weight: 700;
     font-size: 14px;
-
     transition: color 0.3s ease;
+}
 
-  }
-
-  a.task-list:hover {
-
-    color: #0056b3;
-
+a.task-list:hover {
+    color: #efb11d;
     text-decoration: underline;
+}
 
-  }
-
-  /* Mobile Responsiveness */
-
-  @media (max-width: 600px) {
-
+/* 6. Mobile Responsiveness */
+@media (max-width: 600px) {
     .user-form {
-
-      padding: 20px;
-
-      margin: 20px auto;
-
+        padding: 25px;
+        margin: 40px 15px;
     }
-
     .user-form button[type="submit"] {
-
-      padding: 10px;
-
+        padding: 12px;
     }
-
-  }
-
- 
+}

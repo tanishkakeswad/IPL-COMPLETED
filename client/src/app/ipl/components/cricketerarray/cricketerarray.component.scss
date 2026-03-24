@@ -1,40 +1,109 @@
+/* 1. Main List Container */
 .cricketer-list-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  border-radius: 10px;
- 
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f4f7f9; /* Subtle grey background */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e8ef;
+
   h2 {
     text-align: center;
-    color: #007bff;
-    margin-bottom: 0.5rem;
+    color: #19388a; /* IPL Navy */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #efb11d; /* Gold underline */
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
   }
- 
+
+  /* 2. The Action Button (e.g. Add Player) */
   button {
     display: block;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #19388a 0%, #001c58 100%);
     color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px; /* Pill shape */
     cursor: pointer;
- 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(25, 56, 138, 0.2);
+
     &:hover {
-      background-color: #0056b3;
+      background: #efb11d;
+      color: #19388a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(239, 177, 29, 0.3);
     }
   }
 }
- 
+
+/* 3. Individual Player Cards */
 .cricketer-card {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
- 
+  margin-bottom: 1.5rem;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e1e8ef;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  /* Left-side Gold Accent */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #efb11d;
+  }
+
+  &:hover {
+    transform: translateX(5px);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
+    border-color: #19388a;
+  }
+
   p {
-    margin: 0.2rem 0;
+    margin: 8px 0;
+    color: #444;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 5px;
+
+    /* Styling the Label part of the text if it's "Name: Kohli" */
+    strong {
+      color: #19388a;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Last paragraph doesn't need a border */
+  p:last-child {
+    border-bottom: none;
   }
 }
+
+/* 4. Responsive Adjustments */
+@media (max-width: 600px) {
+  .cricketer-list-container {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+}
+
